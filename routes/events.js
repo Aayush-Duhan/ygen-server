@@ -264,7 +264,7 @@ router.delete('/:id', async (req, res) => {
       return res.status(404).json({ msg: 'Event not found' });
     }
     
-    await Event.findByIdAndRemove(req.params.id);
+    await Event.findByIdAndDelete(req.params.id);
     
     res.json({ msg: 'Event removed' });
   } catch (err) {

@@ -55,7 +55,8 @@ mongoose.connect(MONGODB_URI)
 // Define routes
 app.use('/api/events', require('./routes/events'));
 app.use('/api/winners', winnersRoutes);
-
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/authevents', require('./routes/events'));
 // Default route
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
@@ -67,7 +68,6 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  console.log(`Make sure to access using: https://code-y-gen.up.railway.app`);
 });
 
 // Handle server errors
